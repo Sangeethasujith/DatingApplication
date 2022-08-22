@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220204232600_ExtendedUserEntity")]
+    [Migration("20220818063036_ExtendedUserEntity")]
     partial class ExtendedUserEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,7 +64,7 @@ namespace API.Data.Migrations
                     b.Property<byte[]>("PasswordSalt")
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

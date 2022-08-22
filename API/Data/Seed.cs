@@ -28,11 +28,10 @@ namespace API.Data
                 user.PasswordSalt = hmac.Key;
                 user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("Pa$$w0rd"));
 
-                context.Users.AddAsync(user);
+                await context.Users.AddAsync(user);
             }
 
             await context.SaveChangesAsync();
         }
-
     }
 }

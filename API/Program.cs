@@ -16,10 +16,10 @@ namespace API
     {
         public static async Task Main(string[] args)
         {
-            var host=CreateHostBuilder(args).Build();
+            var host = CreateHostBuilder(args).Build();
             using var scope = host.Services.CreateScope();
             var services = scope.ServiceProvider;
-            try 
+            try
             {
                 var context = services.GetRequiredService<DataContext>();
                 await context.Database.MigrateAsync();
@@ -28,8 +28,9 @@ namespace API
             catch (Exception ex)
             {
                 var logger = services.GetRequiredService<ILogger<Program>>();
-                logger.LogError(ex,"An error occured during migration");
+                logger.LogError(ex, "An error occurred during migration");
             }
+
             await host.RunAsync();
         }
 

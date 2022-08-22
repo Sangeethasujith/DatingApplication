@@ -7,6 +7,11 @@ namespace API.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.RenameColumn(
+                name: "Username",
+                table: "Users",
+                newName: "UserName");
+
             migrationBuilder.AddColumn<string>(
                 name: "City",
                 table: "Users",
@@ -142,6 +147,11 @@ namespace API.Data.Migrations
             migrationBuilder.DropColumn(
                 name: "LookingFor",
                 table: "Users");
+
+            migrationBuilder.RenameColumn(
+                name: "UserName",
+                table: "Users",
+                newName: "Username");
         }
     }
 }

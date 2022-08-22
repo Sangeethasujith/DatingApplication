@@ -18,7 +18,7 @@ export class TestErrorsComponent implements OnInit {
   }
 
   get404Error(){
-    this.http.get(this.baseUrl+'buggy/not-found').subscribe(response=> {
+    this.http.get(this.baseUrl+'buggy/').subscribe(response=> {
       console.log(response);
     },error=>{
       console.log(error)
@@ -49,12 +49,12 @@ export class TestErrorsComponent implements OnInit {
     })
   }
 
-  get400ValidationError(){
-    this.http.get(this.baseUrl+'buggy/not-found').subscribe(response=> {
+  get400ValidationError() {
+    this.http.post(this.baseUrl + 'account/register', {}).subscribe(response => {
       console.log(response);
-    },error=>{
+    }, error => {
       console.log(error);
-      this.validationErrors=error;
+      this.validationErrors = error;
     })
   }
 

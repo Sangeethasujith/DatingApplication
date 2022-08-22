@@ -21,7 +21,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (error) {
           switch (error.status) {
             case 400:
-              if (error.error.errors) {
+              if (error.error.errors) {// to get the details of error like usernname nt found
                 const modalStateErrors = [];
                 for (const key in error.error.errors) {
                   if (error.error.errors[key]) {
@@ -40,7 +40,7 @@ export class ErrorInterceptor implements HttpInterceptor {
               this.router.navigateByUrl('/not-found');
               break;
             case 500:
-              const navigationExtras: NavigationExtras = {state: {error: error.error}}
+              const navigationExtras: NavigationExtras = {state: {error: error.error}}// to get details of the error passed from api
               this.router.navigateByUrl('/server-error', navigationExtras);
               break;
             default:
