@@ -32,7 +32,7 @@ export class MemberDetailComponent implements OnInit {
     
   }
 
-  getImges(): NgxGalleryImage[]{
+  getImages(): NgxGalleryImage[]{
     const imageUrls=[];
     for (const photo of this.member?.photos) {
       imageUrls.push({
@@ -44,10 +44,11 @@ export class MemberDetailComponent implements OnInit {
   return imageUrls; 
   }
 
-  loadMember(){
-    this.memberService.getMember(this.route.snapshot.paramMap.get('username')||'{}').subscribe(member => {
+
+  loadMember() {
+    this.memberService.getMember(this.route.snapshot.paramMap.get('username') || '{}').subscribe(member => {
       this.member = member;
-      this.galleryImages=this.getImges();
+      this.galleryImages = this.getImages();
     })
-  }
+}
 }
